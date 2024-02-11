@@ -1,0 +1,11 @@
+#logo {
+  color: var(--theme-color);
+  height: 100%;
+  width: 100%;
+  fill: none;
+  border: 2px solid var(--theme-color);
+  &:hover{
+    box-shadow: 4px 4px 0 0 var(--theme-color);
+    transform: translate(-3px, -3px);
+  }
+}
