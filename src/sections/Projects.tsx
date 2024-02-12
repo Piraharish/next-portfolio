@@ -80,8 +80,7 @@ function Projects() {
                   <div className="project-image-container">
                     <Image
                       src={urlForImage(image)}
-                      fill
-                      sizes="100"
+                      fill={true}
                       alt={projectName}
                       quality={100}
                     />

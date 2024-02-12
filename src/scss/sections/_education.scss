@@ -63,7 +63,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          color: var(--slate);
+          color: var(--light-slate);
           font-family: var(--fira-code);
           font-size: var(--tsm1);
         }
@@ -101,7 +101,7 @@
         padding-left: 20px;
         &-item {
           position: relative;
-          color: var(--slate);
+          color: var(--lightest-slate);
           font-weight: 500;
           &::before {
             content: "▹";

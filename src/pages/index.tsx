@@ -25,10 +25,12 @@ function Index() {
       <Head>
         <title>Piraharish</title>
         <link rel="shortcut icon" href="/favicon.ico" />
+        <meta property="og:type" content="website"></meta>
         <meta property="og:title" content="Piraharish | Portfolio" />
-        <meta property="og:description" content="A personal portfolio website for Piraharish." />
+        <meta property="og:description" content="A Personal Portfolio Website showcasing Piraharish's journey, powered by Next.js(React Framework) and Sanity.io(headless Content Management System), revealing insights about their skills and experiences."/>
+        <meta name="description" content="A Personal Portfolio Website showcasing Piraharish's journey, powered by Next.js(React Framework) and Sanity.io(headless Content Management System), revealing insights about their skills and experiences." />
         <meta property="og:image" itemProp="image" content="/Piraharish.png" />
-        <meta property="og:url" content="https://piraharish-portfolio.netlify.app" />
+        <meta property="og:url" content="https://piraharish.vercel.app" />
         <meta property="msapplication-tileImage" content="/Piraharish.png" />
         <meta name="twitter:card" content="summary_large" />
       </Head>

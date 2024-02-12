@@ -42,15 +42,15 @@ nav {
     .nav-items {
       display: flex;
       align-items: center;
-      gap: 2rem;
-      color: var(--lightest-slate);
+      gap: 1rem;
+      color: var(--light-slate);
       font-family: var(--fira-code);
       font-weight: 500;
       font-size: var(--tsm1);
       counter-reset: nav-list;
       &-list {
         display: flex;
-        gap: 2rem;
+        gap: 1.5rem;
         align-items: center;
         list-style-type: none;
         &-item {
@@ -75,7 +75,7 @@ nav {
         }
         &::after {
           content: "|";
-          font-size: 2rem;
+          font-size: 1.5rem;
           font-weight: lighter;
           color: var(--theme-color);
         }

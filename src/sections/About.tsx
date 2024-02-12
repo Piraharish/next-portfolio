@@ -70,9 +70,8 @@ function About() {
                 <Image
                   src={urlForImage(data.image)}
                   alt="profile"
-                  fill
+                  fill={true}
                   quality={100}
-                  sizes="100"
                 />
               </div>
             </div>

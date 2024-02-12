@@ -47,6 +47,7 @@ function SocialIcons() {
               href={link}
               className="social-icons-list-item-link"
               target="_blank"
+              rel="noopener noreferrer"
             >
               {icon}
             </Link>

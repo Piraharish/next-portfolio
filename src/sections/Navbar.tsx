@@ -138,7 +138,6 @@ function Navbar() {
               </motion.li>
             ))}
           </ul>
-          {/* <span style={{fontWeight:"lighter", fontSize:"2rem", color:"var(--theme-color)"}}>|</span> */}
           <motion.div
             className="nav-items-button"
             initial={{ opacity: 0, y: -25 }}
@@ -151,7 +150,7 @@ function Navbar() {
           >
             <Button
               text={resumeFileData?.text || "Resume"}
-              link={resumeFileData?.resume || "/resume.pdf"}
+              link={resumeFileData?.resume || "/Resume.pdf"}
             />
           </motion.div>
         </div>
