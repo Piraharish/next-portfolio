@@ -4,6 +4,12 @@ const heroData = {
   type: "document",
   fields: [
     {
+      name: "greeting",
+      title: "Greeting",
+      type: "string",
+      description: "The Greeting on the Hero section",
+    },
+    {
       name: "name",
       title: "Name",
       type: "string",

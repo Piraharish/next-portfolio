@@ -24,7 +24,6 @@ const NavLinks = ({
         {sectionLinks.map(({ name, link }, index) => (
           <MotionLi
             key={name}
-            className="nav-items-list-item"
             initial={{ opacity: 0, y: -25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{

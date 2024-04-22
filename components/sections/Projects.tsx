@@ -45,8 +45,8 @@ const Projects = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={{
-            visible: { opacity: 1,y:0 },
-            hidden: { opacity: 0,y:-5 },
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: -5 },
           }}
           transition={{
             duration: 0.5,
@@ -89,6 +89,7 @@ const Projects = () => {
                 href={project.projectExternalLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={"Github link for " + project.projectName}
                 className="rounded p-2 tran300 custom-focus hover:text-primary hover:bg-slate-300/10"
               >
                 <Github />
@@ -97,6 +98,7 @@ const Projects = () => {
                 href={project.projectExternalLinks.externalLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={"Live link of " + project.projectName}
                 className="rounded p-2 tran300 custom-focus hover:text-primary hover:bg-slate-300/10"
               >
                 <ExternalLink />
@@ -105,12 +107,13 @@ const Projects = () => {
           </div>
           <Link
             href={project.projectExternalLinks.externalLink}
+            aria-label={"Demo of " + project.projectName}
             className="relative aspect-video w-full rounded custom-focus"
           >
             <div className="absolute aspect-video w-full bg-primary/40 rounded tran300 hover:bg-transparent z-[1]" />
             <Image
               src={urlForImage(project.image)}
-              alt={"Project Image" + (index + 1)}
+              alt={"Image of " + project.projectName}
               fill
               sizes="100"
               className="absolute rounded"

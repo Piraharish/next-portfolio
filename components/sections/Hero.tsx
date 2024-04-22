@@ -14,11 +14,11 @@ const Hero = () => {
 
     fetchData();
   }, []);
-  
+
   return (
     <section id="/" className="items-start p-0 mb-10">
       <MotionH6
-        className="text-primary text-base font-mono mb-8 ml-1"
+        className="text-primary text-lg font-semibold tracking-wide font-mono mb-8 ml-1"
         initial={{ opacity: 0, y: 5 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -27,7 +27,7 @@ const Hero = () => {
           delay: 0.6,
         }}
       >
-        Hi, my name is
+        {heroData?.greeting}
       </MotionH6>
       <MotionH2
         className="text-5xl md:text-6xl lg:text-7xl font-extrabold"

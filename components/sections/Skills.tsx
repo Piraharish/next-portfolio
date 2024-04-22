@@ -126,14 +126,14 @@ const Skills = () => {
       <div className="list-none grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {skillData.map((data, index) => (
           <Link
-            className="custom-focus focus:-translate-y-2 transition-transform duration-300"
+            className="custom-focus focus:-translate-y-2 tran300 rounded-sm bg-gradient-to-b from-slate-300/5 to-background hover:bg-slate-300/10 hover:-translate-y-2 hover:animate-pulse focus:animate-pulse"
             key={index}
             href={data.href}
             target="_blank"
             rel="noopener noreferrer"
           >
             <MotionDiv
-              className="flex flex-col items-center gap-3 text-lg font-medium tracking-wide tran300 py-6 bg-gradient-to-b from-slate-300/5 to-background rounded-sm hover:bg-slate-300/10 hover:-translate-y-2 hover:animate-pulse"
+              className="flex flex-col items-center gap-3 text-lg font-medium tracking-wide py-6"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
