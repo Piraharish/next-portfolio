@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 263.4 70% 50.4%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scrollbar-width: none;
+  }
+  body {
+    @apply bg-background text-slate-300/90 w-full max-w-[100vw] overflow-x-hidden antialiased;
+  }
+  html,
+  body {
+    @apply scroll-smooth !important;
+  }
+
+  section {
+    @apply min-h-screen mx-auto w-full flex flex-col justify-center;
+  }
+}
+
+.btn:hover {
+  box-shadow: 4px 4px 0 0 hsl(263.4 70% 50.4%);
+  transform: translate(-3px, -3px);
+}
+
+.btn:focus {
+  box-shadow: 4px 4px 0 0 hsl(263.4 70% 50.4%);
+  transform: translate(-3px, -3px);
+}
+.tran300 {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.vertical-mode {
+  writing-mode: vertical-rl;
+}
+
+.custom-focus {
+  @apply outline-2 outline-dashed outline-transparent focus:outline-primary;
+}
+
+.afterline {
+  @apply after:block after:w-[2px] after:h-24 after:mx-0 after:my-auto after:bg-slate-300/90;
+}
+
+.afterline2 {
+  @apply after:relative after:block after:bg-muted after:ml-5  after:w-full after:h-px md:after:w-52 lg:after:w-80;
+}
+.beforeline {
+  @apply before:relative before:block before:bg-muted before:mr-5  before:w-full before:h-px md:before:w-52 lg:before:w-80;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  width: none;
+}
+
+.li-before::before {
+  content: "▹";
+  font-size: 20px;
+  position: absolute;
+  left: 0px;
+  top: 5px;
+  color: hsl(263.4 70% 50.4%);
+  line-height: 12px;
+}
