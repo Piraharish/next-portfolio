@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MotionDiv } from "./motions";
-function Email() {
+const Email = () => {
   return (
     <MotionDiv
       className="max-md:hidden fixed bottom-0 md:right-4 lg:right-12 flex flex-col items-center gap-6 afterline"
@@ -13,6 +13,7 @@ function Email() {
       }}
     >
       <Link
+        aria-label="Link to send Mail"
         href="mailto:piraharish.s@gmail.com"
         className="vertical-mode custom-focus font-mono font-medium text-base lg:text-lg tracking-wider mb-5 p-3 tran300 hover:text-primary hover:-translate-y-2 focus:-translate-y-2"
       >
@@ -20,6 +21,6 @@ function Email() {
       </Link>
     </MotionDiv>
   );
-}
+};
 
-export default Email;
+export { Email };

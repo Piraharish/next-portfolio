@@ -8,7 +8,7 @@ import {
 import Link from "next/link";
 import { MotionDiv } from "./motions";
 
-function SocialIcons() {
+const SocialIcons = () => {
   const socialLinks = [
     {
       name: "Github",
@@ -56,6 +56,7 @@ function SocialIcons() {
           >
             <Link
               href={link}
+              aria-label={"Link for " + name}
               className="p-3 tran300 custom-focus text-base lg:text-lg hover:text-primary focus:text-primary focus:-translate-y-2"
               target="_blank"
               rel="noopener noreferrer"
@@ -67,6 +68,6 @@ function SocialIcons() {
       </ul>
     </MotionDiv>
   );
-}
+};
 
-export default SocialIcons;
+export { SocialIcons };

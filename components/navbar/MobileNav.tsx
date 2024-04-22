@@ -49,23 +49,25 @@ const MobileNav = ({
   return (
     <div className="md:hidden font-mono">
       <button
+        id="menu-button"
+        aria-label="menu button"
         className="w-10 h-8 flex flex-col justify-between z-50 relative"
         onClick={() => setOpen((prev) => !prev)}
       >
         <motion.div
-        transition={{ duration: 0.25, ease: "easeInOut" }}
+          transition={{ duration: 0.25, ease: "easeInOut" }}
           variants={topVariants}
           animate={open ? "opened" : "closed"}
           className="w-10 h-1 rounded bg-primary origin-left"
         ></motion.div>
         <motion.div
-        transition={{ duration: 0.25, ease: "easeInOut" }}
+          transition={{ duration: 0.25, ease: "easeInOut" }}
           variants={middleVariants}
           animate={open ? "opened" : "closed"}
           className="w-10 h-1 rounded bg-primary"
         ></motion.div>
         <motion.div
-        transition={{ duration: 0.25, ease: "easeInOut" }}
+          transition={{ duration: 0.25, ease: "easeInOut" }}
           variants={bottomVariants}
           animate={open ? "opened" : "closed"}
           className="w-10 h-1 rounded bg-primary origin-left"
