@@ -3,11 +3,12 @@ import { MotionDiv, MotionLi } from "../motions";
 import Button from "../ui/Button";
 
 export const sectionLinks = [
-  { name: "About", link: "/#about" },
-  { name: "Education", link: "/#education" },
-  { name: "Work", link: "/#work" },
+  { name: "About", no:"01.", link: "/#about" },
+  { name: "Education",no:"02.", link: "/#education" },
+  { name: "Works",no:"03.", link: "/#works" },
   {
     name: "Contact",
+    no:"05.",
     link: "/#contact",
   },
 ];
@@ -21,7 +22,7 @@ const NavLinks = ({
   return (
     <div className="hidden list-none md:flex text-base items-center gap-x-4 font-mono">
       <ul className="flex items-center gap-x-4 list-none">
-        {sectionLinks.map(({ name, link }, index) => (
+        {sectionLinks.map(({ name,no, link }, index) => (
           <MotionLi
             key={name}
             initial={{ opacity: 0, y: -25 }}
@@ -36,7 +37,7 @@ const NavLinks = ({
               href={link}
               className="custom-focus p-3 tran300 hover:text-primary"
             >
-              <span className="text-primary mr-1">0{index + 1}.</span>
+              <span className="text-primary mr-1">{no}</span>
               {name}
             </Link>
           </MotionLi>

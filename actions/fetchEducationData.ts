@@ -2,7 +2,7 @@
 
 import { client } from "@/sanity/lib/client";
 
-export interface EducationProps {
+interface EducationProps {
     title: string;
     educationList:[
       {

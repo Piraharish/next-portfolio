@@ -1,4 +1,4 @@
-const Gitsvg = () => {
+const Gitsvg = ({ className }: { className?: string }) => {
   return (
     <svg
       width="50px"
@@ -6,6 +6,7 @@ const Gitsvg = () => {
       viewBox="0 0 20 20"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <title>github [#142]</title>
       <desc>Created with Sketch.</desc>

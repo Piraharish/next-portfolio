@@ -1,10 +1,11 @@
-const ReactJS = () => {
+const ReactJS = ({ className }: { className?: string }) => {
   return (
     <svg
       width="50px"
       height="50px"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <g fill="#00D8FF" fillRule="evenodd">
         <circle cx="11.996" cy="11.653" r="2.142" />

@@ -1,28 +1,9 @@
+import fetchGitData from "@/actions/fetchGitData";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Gitbranch, Star } from "./icons";
+import { LuGitBranch, LuStar } from "react-icons/lu";
 
-const Footer = () => {
-  const [githubInfo, setGitHubInfo] = useState({
-    stars: null || 0,
-    forks: null || 0,
-  });
-
-  useEffect(() => {
-    if (process.env.NODE_ENV !== "production") {
-      return;
-    }
-    fetch("https://api.github.com/repos/piraharish/next-portfolio")
-      .then((response) => response.json())
-      .then((json) => {
-        const { stargazers_count, forks_count } = json;
-        setGitHubInfo({
-          stars: stargazers_count,
-          forks: forks_count,
-        });
-      })
-      .catch((e) => console.error(e));
-  }, []);
+const Footer = async () => {
+  const gitData = await fetchGitData();
 
   return (
     <footer className="p-8 text-center">
@@ -35,12 +16,12 @@ const Footer = () => {
         Built by Piraharish.
         <div className="flex gap-x-4 mt-2 items-center justify-center">
           <span className="flex gap-x-1.5 items-center">
-            <Star />
-            {githubInfo.stars}
+            <LuStar />
+            {gitData?.stars}
           </span>
           <span className="flex gap-x-1.5 items-center">
-            <Gitbranch />
-            {githubInfo.forks}
+            <LuGitBranch />
+            {gitData?.forks}
           </span>
         </div>
       </Link>

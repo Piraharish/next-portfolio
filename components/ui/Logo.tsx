@@ -51,11 +51,11 @@ const Logo = () => {
             </g>
           </g>
           <text
-            x="28"
-            y="65"
+            x="27"
+            y="67"
             fill="currentColor"
             fontSize="50px"
-            fontFamily="Consolas"
+            className="font-semibold"
           >
             P
           </text>

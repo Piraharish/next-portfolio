@@ -1,10 +1,11 @@
-const MongoDB = () => {
+const MongoDB = ({ className }: { className?: string }) => {
   return (
     <svg
       width="50px"
       height="50px"
       viewBox="0 0 1024 1024"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <circle cx="512" cy="512" r="512" fill="#13aa52" />
       <path

@@ -44,7 +44,7 @@
   }
 
   section {
-    @apply min-h-screen mx-auto w-full flex flex-col justify-center;
+    @apply w-full flex flex-col justify-center;
   }
 }
 
@@ -63,6 +63,10 @@
 
 .vertical-mode {
   writing-mode: vertical-rl;
+}
+
+.backface-invisible {
+  backface-visibility: hidden;
 }
 
 .custom-focus {

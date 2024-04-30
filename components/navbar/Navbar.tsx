@@ -1,9 +1,11 @@
+"use client";
+
 import { MotionDiv } from "@/components/motions";
 import MobileNav from "@/components/navbar/MobileNav";
 import NavLinks from "@/components/navbar/NavLinks";
+import Logo from "@/components/ui/Logo";
 import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
-import Logo from "../ui/Logo";
 
 interface ResumeData {
   buttonText: string | undefined;

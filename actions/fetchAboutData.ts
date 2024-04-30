@@ -2,7 +2,7 @@
 
 import { client } from "@/sanity/lib/client";
 
-export interface AboutData {
+interface AboutData {
   title: string;
   paragraphs: string[];
   technologies: string[];

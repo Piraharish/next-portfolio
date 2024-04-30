@@ -1,38 +1,38 @@
-import {
-  Facebook,
-  Github,
-  Instagram,
-  Linkedin,
-  Twitter,
-} from "@/components/icons";
 import Link from "next/link";
+import {
+  LuFacebook,
+  LuGithub,
+  LuInstagram,
+  LuLinkedin,
+  LuTwitter,
+} from "react-icons/lu";
 import { MotionDiv } from "./motions";
 
 const SocialIcons = () => {
   const socialLinks = [
     {
       name: "Github",
-      icon: <Github />,
+      icon: <LuGithub className="size-5 lg:size-6" />,
       link: "https://www.github.com/Piraharish",
     },
     {
       name: "Facebook",
-      icon: <Facebook />,
+      icon: <LuFacebook className="size-5 lg:size-6" />,
       link: "https://www.facebook.com/Piraharish",
     },
     {
       name: "LinkedIn",
-      icon: <Linkedin />,
+      icon: <LuLinkedin className="size-5 lg:size-6" />,
       link: "https://www.linkedin.com/in/piraharish",
     },
     {
       name: "Instagram",
-      icon: <Instagram />,
+      icon: <LuInstagram className="size-5 lg:size-6" />,
       link: "https://instagram.com/Piraharish",
     },
     {
       name: "Twitter",
-      icon: <Twitter />,
+      icon: <LuTwitter className="size-5 lg:size-6" />,
       link: "https://twitter.com/piraharish",
     },
   ];

@@ -31,11 +31,11 @@ const Loader = () => {
               exit={{
                 scale: 2,
               }}
-              x="1"
+              x="0"
               y="35"
               fill="currentColor"
               fontSize="55px"
-              fontFamily="Consolas"
+              className="font-medium"
             >
               P
             </MotionText>

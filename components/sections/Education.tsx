@@ -1,46 +1,15 @@
-import fetchEducationData, {
-  EducationProps,
-} from "@/actions/fetchEducationData";
+import fetchEducationData from "@/actions/fetchEducationData";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { MotionDiv, MotionP, MotionSection } from "../motions";
+import { MotionDiv, MotionP } from "../motions";
 import SectionTitle from "../ui/SectionTitle";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 
-const Education = () => {
-  const [educationData, setEducationData] = useState<EducationProps | null>(
-    null
-  );
-  const [defaultValue, setDefaultValue] = useState<string>("");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetchEducationData();
-        setEducationData(data);
-        if (data && data.educationList.length > 0) {
-          setDefaultValue(data.educationList[0].name.toLowerCase());
-        }
-      } catch (error) {
-        console.error("Error fetching education data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+const Education = async () => {
+  const educationData = await fetchEducationData();
+  const defaultValue = educationData?.educationList[0].name.toLowerCase();
 
   return (
-    <MotionSection
-      id="education"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      variants={{
-        visible: { opacity: 1 },
-        hidden: { opacity: 0 },
-      }}
-    >
+    <section id="education" className="min-h-[90vh] pt-8">
       <SectionTitle title={educationData?.title || ""} titleNo={"02."} />
       <div className="max-w-3xl mx-auto min-h-96">
         <Tabs
@@ -75,6 +44,10 @@ const Education = () => {
                   {data.role}
                   <Link
                     href={data.url}
+                    target="_blank"
+                    rel="noopener noreferrer preconnect"
+                    aria-label={`Link to ${data.name}`}
+                    title={`Link to ${data.name}`}
                     className="text-primary group flex items-center gap-px custom-focus"
                   >
                     @
@@ -111,7 +84,7 @@ const Education = () => {
           ))}
         </Tabs>
       </div>
-    </MotionSection>
+    </section>
   );
 };
 

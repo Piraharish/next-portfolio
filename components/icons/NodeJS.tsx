@@ -1,4 +1,4 @@
-const NodeJS = () => {
+const NodeJS = ({ className }: { className?: string }) => {
   return (
     <svg
       width="50px"
@@ -7,6 +7,7 @@ const NodeJS = () => {
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid"
+      className={className}
     >
       <g>
         <path

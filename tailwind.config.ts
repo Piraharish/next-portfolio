@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      flex: {
+        35: "0 0 35%",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

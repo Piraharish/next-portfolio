@@ -2,7 +2,7 @@
 
 import { client } from "@/sanity/lib/client";
 
-export interface Project {
+interface Project {
   title: string;
   projectsList: [
     {

@@ -1,43 +1,16 @@
-"use client";
-
-import fetchProjects, { Project } from "@/actions/fetchProjectData";
+import fetchProjects from "@/actions/fetchProjectData";
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { ExternalLink, Github } from "../icons";
-import { MotionDiv, MotionSection } from "../motions";
+import { LuExternalLink, LuGithub } from "react-icons/lu";
+import { MotionDiv } from "../motions";
 import SectionTitle from "../ui/SectionTitle";
 
-const Projects = () => {
-  const [projectsData, setProjectsData] = useState<Project | null>();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetchProjects();
-        setProjectsData(data);
-      } catch (error) {
-        console.error("Error fetching project data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+const Projects = async () => {
+  const projectsData = await fetchProjects();
 
   return (
-    <MotionSection
-      id="work"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      variants={{
-        visible: { opacity: 1 },
-        hidden: { opacity: 0 },
-      }}
-      className="py-12"
-    >
+    <section id="works" className="pt-20">
       <SectionTitle title={projectsData?.title || ""} titleNo={"03."} />
       {projectsData?.projectsList.map((project, index) => (
         <MotionDiv
@@ -45,8 +18,8 @@ const Projects = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={{
-            visible: { opacity: 1, y: 0 },
-            hidden: { opacity: 0, y: -5 },
+            visible: { opacity: 1 },
+            hidden: { opacity: 0 },
           }}
           transition={{
             duration: 0.5,
@@ -62,6 +35,10 @@ const Projects = () => {
             <div className="flex items-center justify-between mb-6 font-bold">
               <Link
                 href={project.projectExternalLinks.externalLink}
+                target="_blank"
+                rel="noopener noreferrer preconnect"
+                aria-label={`Live Link to ${project.projectName}`}
+                title={`Live Link to ${project.projectName}`}
                 className="text-2xl tracking-wider tran300 text-primary custom-focus group"
               >
                 <span className="bg-left-bottom bg-gradient-to-r from-primary to-primary bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] tran300 ease-out">
@@ -84,15 +61,15 @@ const Projects = () => {
                 </li>
               ))}
             </ul>
-            <div className="flex gap-x-6 items-center afterline2">
+            <div className="flex gap-x-3 items-center afterline2">
               <Link
                 href={project.projectExternalLinks.github}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer preconnect"
                 aria-label={"Github link for " + project.projectName}
                 className="rounded p-2 tran300 custom-focus hover:text-primary hover:bg-slate-300/10"
               >
-                <Github />
+                <LuGithub className="size-5" />
               </Link>
               <Link
                 href={project.projectExternalLinks.externalLink}
@@ -101,7 +78,7 @@ const Projects = () => {
                 aria-label={"Live link of " + project.projectName}
                 className="rounded p-2 tran300 custom-focus hover:text-primary hover:bg-slate-300/10"
               >
-                <ExternalLink />
+                <LuExternalLink className="size-5" />
               </Link>
             </div>
           </div>
@@ -121,7 +98,7 @@ const Projects = () => {
           </Link>
         </MotionDiv>
       ))}
-    </MotionSection>
+    </section>
   );
 };
 

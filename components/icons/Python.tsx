@@ -1,4 +1,4 @@
-const Python = () => {
+const Python = ({ className }: { className?: string }) => {
   return (
     <svg
       width="50px"
@@ -6,6 +6,7 @@ const Python = () => {
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         fillRule="evenodd"

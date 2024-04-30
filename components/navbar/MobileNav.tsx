@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
@@ -46,6 +44,7 @@ const MobileNav = ({
     closed: { x: "100vw" },
     opened: { x: 0 },
   };
+
   return (
     <div className="md:hidden font-mono">
       <button
@@ -81,7 +80,7 @@ const MobileNav = ({
           className="absolute duration-300 top-0 left-0 w-screen h-screen bg-slate-950/95 flex flex-col items-center justify-center gap-6 z-40"
         >
           <ul className="flex flex-col items-start gap-6 list-none">
-            {sectionLinks.map(({ name, link }, index) => (
+            {sectionLinks.map(({ name, no, link }, index) => (
               <motion.li
                 key={name}
                 className="nav-items-list-item"
@@ -97,7 +96,7 @@ const MobileNav = ({
                   href={link}
                   className="custom-focus p-3 tran300 hover:text-primary"
                 >
-                  <span className="text-primary mr-1">0{index + 1}.</span>
+                  <span className="text-primary mr-1">{no}</span>
                   {name}
                 </Link>
               </motion.li>
