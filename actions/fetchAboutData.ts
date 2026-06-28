@@ -1,6 +1,7 @@
 "use server";
 
 import { client } from "@/sanity/lib/client";
+import { unstable_noStore as noStore } from "next/cache";
 
 interface AboutData {
   title: string;
@@ -10,6 +11,7 @@ interface AboutData {
 }
 
 const fetchAboutData = async () => {
+  noStore();
   try {
     const data = await client.fetch<AboutData>(
       `*[_type == "about"]{
@@ -17,7 +19,7 @@ const fetchAboutData = async () => {
           paragraphs,
           technologies,
           image,
-        }[0]`
+        }[0]`,
     );
     return data;
   } catch (error) {

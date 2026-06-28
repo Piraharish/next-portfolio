@@ -11,12 +11,12 @@ const Education = async () => {
   return (
     <section id="education" className="min-h-[90vh] pt-8">
       <SectionTitle title={educationData?.title || ""} titleNo={"02."} />
-      <div className="max-w-3xl mx-auto min-h-96">
+      <div className="max-w-3xl w-full mx-auto min-h-96">
         <Tabs
           defaultValue={defaultValue || "vhnsnc"}
           className="flex max-md:flex-col gap-x-4 gap-y-8"
         >
-          <TabsList>
+          <TabsList className="w-full overflow-x-scroll no-scrollbar">
             {educationData?.educationList.map((data, index) => (
               <TabsTrigger key={index} value={data.name.toLowerCase()}>
                 {data.name}
@@ -75,7 +75,7 @@ const Education = async () => {
                     delay: 0.4 + idx * 0.1,
                   }}
                   key={idx}
-                  className="relative text-base tracking-wide mb-2 pl-6 li-before"
+                  className="relative text-base tracking-wide mb-2 pl-6 li-before break-words"
                 >
                   {desc}
                 </MotionP>

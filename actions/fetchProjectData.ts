@@ -1,6 +1,7 @@
 "use server";
 
 import { client } from "@/sanity/lib/client";
+import { unstable_noStore as noStore } from "next/cache";
 
 interface Project {
   title: string;
@@ -15,11 +16,12 @@ interface Project {
         github: string;
         externalLink: string;
       };
-    }
+    },
   ];
 }
 
 const fetchProjects = async () => {
+  noStore();
   try {
     const data = await client.fetch<Project>(
       `*[_type == "project"]{
@@ -32,7 +34,7 @@ const fetchProjects = async () => {
           projectTech[],
           projectExternalLinks,
         }
-      }[0]`
+      }[0]`,
     );
 
     return data;

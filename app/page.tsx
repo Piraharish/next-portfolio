@@ -22,11 +22,23 @@ const Page = () => {
         <div className="max-w-5xl w-full flex flex-col gap-y-8 mx-auto px-4 sm:px-8 md:px-24 lg:px-28 xl:p-0">
           <Suspense fallback={<LuLoader2 className="animate-spin" />}>
             <Hero />
+          </Suspense>
+          <Suspense fallback={<LuLoader2 className="animate-spin" />}>
             <About />
+          </Suspense>
+          <Suspense fallback={<LuLoader2 className="animate-spin" />}>
             <Education />
+          </Suspense>
+          <Suspense fallback={<LuLoader2 className="animate-spin" />}>
             <Projects />
+          </Suspense>
+          <Suspense fallback={<LuLoader2 className="animate-spin" />}>
             <Skills />
+          </Suspense>
+          <Suspense fallback={<LuLoader2 className="animate-spin" />}>
             <Contact />
+          </Suspense>
+          <Suspense fallback={<LuLoader2 className="animate-spin" />}>
             <Footer />
           </Suspense>
         </div>

@@ -1,14 +1,14 @@
+// export const revalidate = 0;
 import fetchAboutData from "@/actions/fetchAboutData";
 import { MotionDiv, MotionLi, MotionP } from "@/components/motions";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { urlForImage } from "@/sanity/lib/image";
+import { log } from "console";
 import Image from "next/image";
-import Button from "../ui/Button";
 import Link from "next/link";
 
 const About = async () => {
   const aboutData = await fetchAboutData();
-
   return (
     <section id="about" className="min-h-screen">
       <SectionTitle title={aboutData?.title || "About Me"} titleNo="01." />
@@ -93,11 +93,11 @@ const About = async () => {
               ease: "easeInOut",
               delay: 0.6,
             }}
-            className="h-max mx-auto relative aspect-square w-96 object-cover"
+            className="h-max mx-auto relative aspect-square w-80 sm:w-96"
           >
-            <div className="absolute tran300 z-10 aspect-square w-96 bg-primary/40 rounded hover:bg-transparent peer" />
+            <div className="absolute tran300 z-10 aspect-square w-80 sm:w-96 bg-primary/20 rounded hover:bg-transparent peer" />
             <Image
-              className="tran300 h-auto w-auto z-0 rounded peer-hover:-translate-x-2 peer-hover:-translate-y-2"
+              className="tran300 h-auto w-auto z-0 rounded peer-hover:-translate-x-2 peer-hover:-translate-y-2 object-cover"
               src={urlForImage(aboutData.image)}
               alt="profile"
               loading="eager"

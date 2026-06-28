@@ -1,22 +1,24 @@
 "use server";
 
 import { client } from "@/sanity/lib/client";
+import { unstable_noStore as noStore } from "next/cache";
 
 interface EducationProps {
-    title: string;
-    educationList:[
-      {
-        name: string;
-        role: string;
-        url: string;
-        start: string;
-        end: string;
-        shortDescription: string[];
-      }
-    ];
-  }
+  title: string;
+  educationList: [
+    {
+      name: string;
+      role: string;
+      url: string;
+      start: string;
+      end: string;
+      shortDescription: string[];
+    },
+  ];
+}
 
 const fetchEducationData = async () => {
+  noStore();
   try {
     const data = await client.fetch<EducationProps>(
       `*[_type == "education"]{
@@ -29,7 +31,7 @@ const fetchEducationData = async () => {
           end,
           shortDescription[],
         }
-      }[0]`
+      }[0]`,
     );
 
     return data;

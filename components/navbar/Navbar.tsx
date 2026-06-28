@@ -38,7 +38,7 @@ const Navbar = () => {
         `*[_type == "resumeButton"][0]{
         buttonText,
         "resume":resume.asset->url,
-      }`
+      }`,
       )
       .then((data) => {
         setResumeFileData(data);
@@ -50,7 +50,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`flex fixed top-0 w-full bg-background/95 backdrop-blur-sm h-20 justify-between items-center px-6 md:px-12 z-50 transition-transform duration-500 ${
+      className={`flex fixed top-0 w-screen bg-background/95 backdrop-blur-sm h-20 justify-between items-center px-6 md:px-12 z-50 transition-transform duration-500 ${
         isNavbarVisible ? "" : "-translate-y-full"
       }`}
     >
