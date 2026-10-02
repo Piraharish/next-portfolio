@@ -81,7 +81,7 @@ export function Experience() {
     <section
       id="experience"
       ref={sectionRef}
-      className="relative border-t border-border py-24 sm:py-32 lg:py-40"
+      className="relative border-t border-border py-24"
     >
       <div className="mx-auto w-full max-w-7xl">
         <div className="experience-intro relative">

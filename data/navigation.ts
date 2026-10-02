@@ -2,16 +2,12 @@ import { NavItem } from "@/types/navigation";
 
 export const navigation: NavItem[] = [
   {
-    label: "Work",
-    href: "#work",
-  },
-  {
     label: "Approach",
     href: "#approach",
   },
   {
-    label: "Lab",
-    href: "#lab",
+    label: "Work",
+    href: "#work",
   },
   {
     label: "Experience",

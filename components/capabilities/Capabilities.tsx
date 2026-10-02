@@ -63,7 +63,7 @@ export function Capabilities() {
     <section
       id="approach"
       ref={sectionRef}
-      className="relative border-t border-border py-24 sm:py-32 lg:py-40"
+      className="relative border-t border-border py-24"
     >
       <div className="mx-auto grid w-full max-w-7xl gap-16 lg:grid-cols-[minmax(280px,0.7fr)_minmax(0,1.3fr)] lg:gap-24">
         <div ref={headingRef} className="lg:sticky lg:top-28 lg:self-start">

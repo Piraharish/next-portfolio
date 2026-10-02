@@ -1,4 +1,5 @@
 import { Capabilities } from "@/components/capabilities/Capabilities";
+import { Contact } from "@/components/contact/Contact";
 import { Experience } from "@/components/experience/Experience";
 import { Hero } from "@/components/hero/Hero";
 import { SelectedWork } from "@/components/work/SelectedWork";
@@ -10,6 +11,7 @@ export default function Home() {
       <Capabilities />
       <SelectedWork />
       <Experience />
+      <Contact />
     </main>
   );
 }

@@ -5,6 +5,7 @@ import { IconPrompt } from "@tabler/icons-react";
 import gsap from "gsap";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { SmoothScrollLink } from "../ui/smooth-scroll-link";
 
 export function Navbar() {
   const navbarRef = useRef<HTMLElement>(null);
@@ -88,13 +89,9 @@ export function Navbar() {
 
         <div className="hidden items-center gap-8 md:flex">
           {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
+            <SmoothScrollLink key={item.href} href={item.href}>
               {item.label}
-            </Link>
+            </SmoothScrollLink>
           ))}
         </div>
 
