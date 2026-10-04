@@ -3,6 +3,7 @@
 import { IconArrowUp } from "@tabler/icons-react";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
+import { Button } from "./button";
 
 export function ScrollToTop() {
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -74,14 +75,16 @@ export function ScrollToTop() {
   };
 
   return (
-    <button
+    <Button
       ref={buttonRef}
       type="button"
       aria-label="Scroll to top"
+      variant="outline"
+      size="icon"
       onClick={scrollToTop}
-      className="fixed right-4 bottom-4 z-50 flex size-11 items-center justify-center rounded-full border border-border bg-background/80 text-foreground shadow-sm backdrop-blur-md transition-colors duration-300 hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none sm:right-6 sm:bottom-6"
+      className="fixed right-4 bottom-14 z-50 rounded-full"
     >
       <IconArrowUp size={18} stroke={1.7} />
-    </button>
+    </Button>
   );
 }

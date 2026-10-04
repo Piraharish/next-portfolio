@@ -12,9 +12,8 @@ export const heroContent = {
       href: "#work",
     },
     secondary: {
-      label: "GitHub",
-      href: "https://github.com/Piraharish",
-      external: true,
+      label: "Download CV",
+      href: "/Piraharish-CV.pdf",
     },
   },
 };

@@ -25,24 +25,38 @@ export function Experience() {
     ).matches;
 
     const context = gsap.context(() => {
+      /*
+       * Intro
+       */
+      if (!prefersReducedMotion) {
+        gsap.from(".experience-intro > *", {
+          y: 30,
+          opacity: 0,
+          duration: 0.7,
+          stagger: 0.08,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 75%",
+            once: true,
+          },
+        });
+      }
+
+      /*
+       * Reduced motion
+       */
       if (prefersReducedMotion) {
-        gsap.set(progress, { scaleY: 1 });
+        gsap.set(progress, {
+          scaleY: 1,
+        });
+
         return;
       }
 
-      gsap.from(".experience-intro > *", {
-        y: 30,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.08,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 75%",
-          once: true,
-        },
-      });
-
+      /*
+       * Experience items
+       */
       gsap.from(".experience-item", {
         y: 40,
         opacity: 0,
@@ -56,6 +70,9 @@ export function Experience() {
         },
       });
 
+      /*
+       * Timeline progress
+       */
       gsap.fromTo(
         progress,
         {
@@ -81,9 +98,10 @@ export function Experience() {
     <section
       id="experience"
       ref={sectionRef}
-      className="relative border-t border-border py-24"
+      className="relative border-t border-border py-24 sm:py-32 lg:py-40"
     >
       <div className="mx-auto w-full max-w-7xl">
+        {/* Header */}
         <div className="experience-intro relative">
           <div className="flex items-end justify-between border-b border-border pb-6">
             <span className="text-7xl font-medium tracking-tighter text-foreground/10 sm:text-8xl lg:text-9xl">
@@ -114,14 +132,22 @@ export function Experience() {
           </div>
         </div>
 
-        <div ref={timelineRef} className="relative mt-20 lg:mt-28">
+        {/* Timeline */}
+        <div
+          ref={timelineRef}
+          className="relative mt-20 pb-12 sm:mt-24 sm:pb-16 lg:mt-32 lg:pb-20"
+        >
           {/* Base timeline */}
-          <div className="absolute bottom-0 left-4 top-0 w-0.5 bg-border sm:left-32 lg:left-40 rounded-2xl" />
+          <div
+            aria-hidden="true"
+            className="absolute bottom-16 left-4 top-0 w-px rounded-full bg-border sm:bottom-20 sm:left-32 lg:left-40"
+          />
 
-          {/* Animated timeline progress */}
+          {/* Animated progress */}
           <div
             ref={progressRef}
-            className="absolute left-4 top-0 h-full w-0.5 origin-top bg-primary sm:left-32 lg:left-40 rounded-2xl"
+            aria-hidden="true"
+            className="absolute bottom-16 left-4 top-0 w-px origin-top rounded-full bg-primary sm:bottom-20 sm:left-32 lg:left-40"
           />
 
           <div>

@@ -1,5 +1,7 @@
 import type { Icon } from "@tabler/icons-react";
 
+export type ProjectType = "featured" | "confidential" | "archive";
+
 export type Project = {
   number: string;
   title: string;
@@ -7,6 +9,12 @@ export type Project = {
   description: string;
   technologies: string[];
   icon: Icon;
+
+  type: ProjectType;
+
   href?: string;
+  image?: string;
+  imageAlt?: string;
+
   featured?: boolean;
 };

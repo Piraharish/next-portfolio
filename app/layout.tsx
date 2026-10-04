@@ -4,9 +4,11 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { ThemeShortcut } from "@/providers/theme-shortcut";
-import { Navbar } from "@/components/hoc/navbar";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { ScrollToTop } from "@/components/ui/Scroll-to-top";
+import { Navbar } from "@/components/hoc/Navbar";
+import { Help } from "@/components/help/Help";
+import { Suspense } from "react";
 
 const nunitoSans = Nunito_Sans({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -54,9 +56,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           <ScrollProgress />
           <ThemeShortcut />
-          <Navbar />
-          <ScrollToTop />
+          <Suspense>
+            <Navbar />
+          </Suspense>
+          <Suspense>
+            <ScrollToTop />
+          </Suspense>
           {children}
+          <Suspense>
+            <Help />
+          </Suspense>
         </ThemeProvider>
       </body>
     </html>

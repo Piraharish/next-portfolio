@@ -7,7 +7,7 @@ import {
 
 export const contactContent = {
   eyebrow: "Get in touch",
-  title: "Have a problem worth building?",
+  title: "Let's make it happen.",
   description:
     "I'm always interested in thoughtful products, challenging engineering problems, and opportunities to build something useful.",
   email: "piraharish.s@gmail.com",

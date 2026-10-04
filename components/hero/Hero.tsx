@@ -1,11 +1,11 @@
 "use client";
 
 import { heroContent, heroMeta } from "@/data/hero";
+import { IconDownload } from "@tabler/icons-react";
 import gsap from "gsap";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { Button } from "../ui/button";
-import { IconArrowUpRight, IconBrandGithub } from "@tabler/icons-react";
 import { Signature } from "./signature";
 
 export function Hero() {
@@ -14,7 +14,9 @@ export function Hero() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
-  const metaRef = useRef<HTMLDivElement>(null);
+  const desktopMetaRef = useRef<HTMLDivElement>(null);
+  const mobileMetaRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -28,59 +30,132 @@ export function Hero() {
     if (prefersReducedMotion) return;
 
     const context = gsap.context(() => {
-      const timeline = gsap.timeline({
-        defaults: {
-          ease: "power3.out",
-        },
-      });
+      const mm = gsap.matchMedia();
 
-      timeline
-        .from(eyebrowRef.current, {
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
-        })
-        .from(
-          titleRef.current,
-          {
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
+      mm.add("(min-width: 1024px)", () => {
+        const timeline = gsap.timeline({
+          defaults: {
+            ease: "power3.out",
           },
-          "-=0.3",
-        )
-        .from(
-          descriptionRef.current,
-          {
+        });
+
+        timeline
+          .from(eyebrowRef.current, {
             y: 20,
             opacity: 0,
             duration: 0.6,
+          })
+          .from(
+            titleRef.current,
+            {
+              y: 40,
+              opacity: 0,
+              duration: 0.8,
+            },
+            "-=0.3",
+          )
+          .from(
+            descriptionRef.current,
+            {
+              y: 20,
+              opacity: 0,
+              duration: 0.6,
+            },
+            "-=0.4",
+          )
+          .from(
+            actionsRef.current,
+            {
+              y: 20,
+              opacity: 0,
+              duration: 0.5,
+            },
+            "-=0.3",
+          )
+          .from(
+            desktopMetaRef.current,
+            {
+              y: 20,
+              opacity: 0,
+              duration: 0.5,
+            },
+            "-=0.25",
+          )
+          .from(
+            scrollRef.current,
+            {
+              y: 12,
+              opacity: 0,
+              duration: 0.5,
+            },
+            "-=0.2",
+          );
+      });
+
+      mm.add("(max-width: 1023px)", () => {
+        const timeline = gsap.timeline({
+          defaults: {
+            ease: "power3.out",
           },
-          "-=0.4",
-        )
-        .from(
-          actionsRef.current,
-          {
+        });
+
+        timeline
+          .from(eyebrowRef.current, {
             y: 20,
             opacity: 0,
-            duration: 0.5,
-          },
-          "-=0.3",
-        )
-        .from(
-          metaRef.current,
-          {
-            y: 20,
-            opacity: 0,
-            duration: 0.5,
-          },
-          "-=0.3",
-        );
+            duration: 0.6,
+          })
+          .from(
+            titleRef.current,
+            {
+              y: 40,
+              opacity: 0,
+              duration: 0.8,
+            },
+            "-=0.3",
+          )
+          .from(
+            descriptionRef.current,
+            {
+              y: 20,
+              opacity: 0,
+              duration: 0.6,
+            },
+            "-=0.4",
+          )
+          .from(
+            actionsRef.current,
+            {
+              y: 20,
+              opacity: 0,
+              duration: 0.5,
+            },
+            "-=0.3",
+          )
+          .from(
+            mobileMetaRef.current,
+            {
+              y: 20,
+              opacity: 0,
+              duration: 0.5,
+            },
+            "-=0.25",
+          )
+          .from(
+            scrollRef.current,
+            {
+              y: 12,
+              opacity: 0,
+              duration: 0.5,
+            },
+            "-=0.2",
+          );
+      });
+
+      return () => mm.revert();
     }, hero);
 
-    return () => {
-      context.revert();
-    };
+    return () => context.revert();
   }, []);
 
   return (
@@ -129,24 +204,16 @@ export function Hero() {
                 variant="outline"
                 className="rounded-full group"
               >
-                <a
-                  href={heroContent.actions.secondary.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <IconBrandGithub />
+                <a href={heroContent.actions.secondary.href} download={true}>
                   {heroContent.actions.secondary.label}{" "}
-                  <IconArrowUpRight
-                    stroke={2}
-                    className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
-                  />
+                  <IconDownload size={15} stroke={1.7} />
                 </a>
               </Button>
             </div>
           </div>
 
           <div
-            ref={metaRef}
+            ref={desktopMetaRef}
             className="hidden w-56 border-l border-border pl-6 lg:block"
           >
             <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
@@ -163,7 +230,10 @@ export function Hero() {
             </span>
           </div>
 
-          <div className="border-t border-border pt-6 lg:hidden">
+          <div
+            ref={mobileMetaRef}
+            className="border-t border-border pt-6 lg:hidden"
+          >
             <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
               {heroMeta.label}
             </p>
@@ -179,7 +249,10 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="mt-20 flex items-center gap-3 text-xs font-medium uppercase tracking-widest text-muted-foreground">
+        <div
+          ref={scrollRef}
+          className="mt-20 flex items-center gap-3 text-xs font-medium uppercase tracking-widest text-muted-foreground"
+        >
           <span className="h-px w-8 bg-border" />
           Scroll to explore
         </div>

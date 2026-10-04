@@ -1,9 +1,5 @@
 import { Project } from "@/types/projects";
-import {
-  IconArrowUpRight,
-  IconBuildingWarehouse,
-  IconUsers,
-} from "@tabler/icons-react";
+import { IconBuildingWarehouse, IconUsers } from "@tabler/icons-react";
 
 export const projects: Project[] = [
   {
@@ -11,26 +7,27 @@ export const projects: Project[] = [
     title: "Inventory Count System",
     category: "Warehouse Operations",
     description:
-      "A real-world inventory counting platform designed around warehouse workflows, activity management, counting sessions, and operational reliability.",
+      "A warehouse-focused application for managing inventory counting workflows, Transfer orders, Journals, Role management, and more Inventory workflows.",
     technologies: [
       "React",
-      "TypeScript",
+      "Tailwind CSS",
       "ASP.NET Core",
       "SQL Server",
-      "Redis",
-      "WebSockets",
+      "D365 Finance & Operations",
+      "External API Integration",
     ],
     icon: IconBuildingWarehouse,
-    featured: true,
+    type: "confidential",
   },
+
   {
     number: "02",
-    title: "Employee Self-Service",
-    category: "Enterprise HR",
+    title: "Core HR",
+    category: "Employee Self-Service portal",
     description:
-      "An employee self-service platform covering leave management, reporting hierarchy, attendance, calendars, payslips, and HR workflows.",
-    technologies: ["React", "ASP.NET Core", "D365FO", "SQL Server"],
+      "An internal employee self-service platform covering payroll, leave management, attendance, reporting structures, calendars, and HR workflows.",
+    technologies: ["React", "ASP.NET Core", "Microservices", "SQL Server"],
     icon: IconUsers,
-    featured: true,
+    type: "confidential",
   },
 ];

@@ -3,18 +3,18 @@ import { NavItem } from "@/types/navigation";
 export const navigation: NavItem[] = [
   {
     label: "Approach",
-    href: "#approach",
+    href: "/#approach",
   },
   {
     label: "Work",
-    href: "#work",
+    href: "/#work",
   },
   {
     label: "Experience",
-    href: "#experience",
+    href: "/#experience",
   },
   {
     label: "Contact",
-    href: "#contact",
+    href: "/#contact",
   },
 ];

@@ -1,3 +1,5 @@
+import { Icon } from "@tabler/icons-react";
+
 export type ExperienceItem = {
   period: string;
   role: string;
@@ -5,4 +7,5 @@ export type ExperienceItem = {
   description: string;
   responsibilities: string[];
   technologies: string[];
+  icon: Icon;
 };
